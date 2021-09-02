@@ -40,13 +40,13 @@ const displayBook = (books) => {
     searchResultMessage.classList.remove("d-none");
     searchResultMessage.innerText = `${books.numFound} results found `;
   } else {
+    const bookList = books.docs.slice(0, 30);
     errorMessage.classList.add("d-none");
     bookContainer.textContent = "";
     const searchResultMessage = document.getElementById("results");
     searchResultMessage.classList.remove("d-none");
     searchResultMessage.innerText = `${books.numFound} results found,
-    Displaying 30 results `;
-    const bookList = books.docs.slice(0, 30);
+    Displaying ${bookList.length} results `;
 
     //looping through each book and displaying it on the UI
     bookList.forEach((book) => {
